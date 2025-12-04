@@ -5,7 +5,7 @@ import numpy as np
 import joblib
 
 MODEL_PATH = "floc_model_roi_edge.pkl"   # trained edge-focused model
-IMAGE_PATH = "floctank3.jpg"             # image to test
+IMAGE_PATH = "loose_1.jpg"             # image to test
 FLOC_PROB_THRESHOLD = 0.35  # adjust if needed
 
 
@@ -123,15 +123,15 @@ def analyze_floc_aggregation(mask_clean, min_area=50):
     aggregation_index = float(max(0.0, min(1.0, aggregation_index)))
 
     return {
-        "num_flocs": int(len(floc_areas)),
-        "mean_area": float(mean_area),
-        "median_area": float(median_area),
-        "p90_area": float(p90_area),
-        "large_floc_ratio": float(large_floc_ratio),
-        "mean_circularity": mean_circularity,
-        "mean_solidity": mean_solidity,
-        "aggregation_index": aggregation_index,
-        "density_index": density_index,
+        "Num_flocs": int(len(floc_areas)),
+        "Mean_area": float(mean_area),
+        "Median_area": float(median_area),
+        "P90_area": float(p90_area),
+        "Large_floc_ratio": float(large_floc_ratio),
+        "Mean_circularity": mean_circularity,
+        "Mean_solidity": mean_solidity,
+        "Aggregation_index": aggregation_index,
+        "Density_index": density_index,
     }
 
 
@@ -196,10 +196,10 @@ def main():
     for k, v in metrics.items():
         print("  {}: {}".format(k, v))
 
-    agg = metrics["aggregation_index"]
-    dens = metrics["density_index"]
+    agg = metrics["Aggregation_index"]
+    dens = metrics["Density_index"]
 
-    print("  aggregation_index = {:.2f}, density_index = {:.2f}".format(agg, dens))
+    print("  Aggregation_index = {:.2f}, Density_index = {:.2f}".format(agg, dens))
 
     if agg > 0.6 and dens > 0.6:
         print("=> Summary: GOOD flocculation (big & dense flocs, not loose).")

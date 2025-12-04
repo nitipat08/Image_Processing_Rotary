@@ -7,19 +7,14 @@ import joblib
 # Config: image file names
 # -----------------------------
 image_files = [
-    "floctank1.jpg",
-    "floctank2.jpg",
-    "floctank3.jpg",
-    "floctank4.jpg",
-    "floctank5.jpg",
-    "floctank6.jpg",
-]
+    "floctank1.jpg", "floctank2.jpg",  "floctank3.jpg", "floctank4.jpg", "floctank5.jpg",   "floctank6.jpg", "loose_1.jpg","loose_2.jpg"]
+
 
 all_features = []
 all_labels = []
 
 SAMPLES_PER_IMAGE = 20000   # total pixels per image for training
-EDGE_RATIO = 0.5           # fraction of samples taken from high-gradient (edge) pixels
+EDGE_RATIO = 0.3      # fraction of samples taken from high-gradient (edge) pixels
 
 
 def build_features(gray_f):
